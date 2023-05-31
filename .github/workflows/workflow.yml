@@ -1,4 +1,4 @@
-name: test_run
+name: TEST EM PRE
 
 on:
   push:
