@@ -7,9 +7,9 @@ snowflake-db:
       user: "{{ env_var('SF_USERNAME') }}"
       password: "{{ env_var('SF_PASSWORD') }}"
       role: "{{ env_var('SF_ROLE') }}"
-      database: "{{ env_var('SF_DATABASE') }}"
+      database: RAW_DATA
       warehouse: "{{ env_var('SF_WAREHOUSE') }}"
-      schema: "{{ env_var('SF_SCHEMA') }}"
+      schema: PUBLIC
       client_session_keep_alive: False
 
 #     # pre:
