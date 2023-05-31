@@ -25,7 +25,7 @@ jobs:
     name: Deploy to dev
     runs-on: ubuntu-latest
     environment:
-      name: DEV
+      name: PRE
     env:
       DBT_PROFILES_DIR: ./
       SF_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
@@ -49,7 +49,7 @@ jobs:
          dbt deps   
       
       - name: Run dbt models
-        run: dbt run --target dev
+        run: dbt run --target pre
         
       - name: Test dbt models
         run: dbt test
