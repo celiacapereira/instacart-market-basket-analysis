@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: full_products
+    description: products with all information
+    columns:
+      - name: PRODUCT_ID
+        description: primary key of the model
+        tests:
+          - unique
+          - not_null
+      - name: PRODUCT_NAME
+        description: Product name
+      - name: AISLE
+        description: AISLE
+      - name: DEPARTMENT
+        description: department name  
+  - name: orders
+    description: products with all information
+    columns:
+      - name: ORDER_ID
+        description: primary key of the model
+        tests:
+          - unique
+          - not_null
+      - name: ORDER_NUMBER
+        description: Product name
+      - name: USER_ID
+        description: AISLE
+      - name: ORDER_HOUR_OF_DAY
+        description: department name  
+      - name: EVAL_SET
+        description: department name   
+      - name: DAYS_SINCE_PRIOR_ORDER
+        description: department name                 
