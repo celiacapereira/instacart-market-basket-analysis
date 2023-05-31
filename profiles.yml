@@ -6,10 +6,10 @@ snowflake-db:
       account: "{{ env_var('SF_ACCOUNT') }}"
       user: "{{ env_var('SF_USERNAME') }}"
       password: "{{ env_var('SF_PASSWORD') }}"
-      role: ACCOUNTADMIN
-      database: RAW_DATA
+      role: "{{ env_var('SF_ROLE ') }}"
+      database: "{{ env_var('SF_DATABASE') }}"
       warehouse: "{{ env_var('SF_WAREHOUSE') }}"
-      schema: REPORT
+      schema: "{{ env_var('SF_SCHEMA ') }}"
       client_session_keep_alive: False
 
 #     # pre:
