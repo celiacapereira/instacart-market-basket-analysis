@@ -6,7 +6,7 @@ snowflake-db:
       account: "{{ env_var('SF_ACCOUNT') }}"
       user: "{{ env_var('SF_USERNAME') }}"
       password: "{{ env_var('SF_PASSWORD') }}"
-      role: "{{ env_var('SF_ROLE') }}"
+      role: ACCOUNTADMIN
       database: RAW_DATA
       warehouse: "{{ env_var('SF_WAREHOUSE') }}"
       schema: PUBLIC
