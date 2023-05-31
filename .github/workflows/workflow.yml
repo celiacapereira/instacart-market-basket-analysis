@@ -35,4 +35,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Use variables
+        run: |
+          echo "SF_ACCOUNT variable : $SF_ACCOUNT"
+          echo "SF_DATABASE variable : $SF_DATABASE"
+          echo "SF_SCHEMA variable : $SF_SCHEMA"
 
