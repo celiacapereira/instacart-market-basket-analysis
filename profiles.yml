@@ -9,7 +9,7 @@ snowflake-db:
       role: ACCOUNTADMIN
       database: RAW_DATA
       warehouse: "{{ env_var('SF_WAREHOUSE') }}"
-      schema: PUBLIC
+      schema: REPORT
       client_session_keep_alive: False
 
 #     # pre:
