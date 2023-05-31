@@ -7,13 +7,13 @@ on:
 env:
   DBT_PROFILES_DIR: ./
 
-  SF_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
-  SF_DATABASE: ${{ secrets.SF_DATABASE }}
-  SF_PASSWORD: ${{ secrets.SF_PASSWORD }} 
-  SF_ROLE: ${{ secrets.SF_ROLE }}
-  SF_SCHEMA: ${{ secrets.SF_SCHEMA }}
-  SF_USERNAME: ${{ secrets.SF_USERNAME }}
-  SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
+  SF_ACCOUNT: ${{ vars.DEV.SF_ACCOUNT }}
+  SF_DATABASE: ${{  vars.DEV.SF_DATABASE }}
+  SF_PASSWORD: ${{  vars.DEV.SF_PASSWORD }} 
+  SF_ROLE: ${{  vars.DEV.SF_ROLE }}
+  SF_SCHEMA: ${{  vars.DEV.SF_SCHEMA }}
+  SF_USERNAME: ${{  vars.DEV.SF_USERNAME }}
+  SF_WAREHOUSE: ${{  vars.DEV.SF_WAREHOUSE }}
 
 jobs:
   build:
