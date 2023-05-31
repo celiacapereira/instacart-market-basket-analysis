@@ -19,6 +19,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
+  DeployDev: 
+    name: Deploy to dev
+    runs-on: ubuntu-latest
+    environment:
+      name: DEV
     
     steps:
       - name: Check out
