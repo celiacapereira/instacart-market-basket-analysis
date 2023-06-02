@@ -85,7 +85,7 @@ jobs:
       - name: Lint with sqlfluff
         run: |
           pip install sqlfluff
-          sqlfluff lint --dialect mysql /models/marts/full_products.sql
+          sqlfluff lint --dialect mysql models\marts\full_products.sql
 
         
         # Linting only modified models
