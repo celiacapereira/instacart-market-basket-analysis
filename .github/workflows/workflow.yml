@@ -64,12 +64,34 @@ jobs:
       - name: Snowflake Query Action
         uses: anecdotes-ai/snowflake-query@1.1      
         with:
-          # snowflake_account: ${{ secrets.SF_ACCOUNT }}
-          # snowflake_password: ${{  secrets.SF_PASSWORD }} 
-          # snowflake_username: ${{  secrets.SF_USERNAME }}
-          # snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
+          snowflake_account: ${{ secrets.SF_ACCOUNT }}
+          snowflake_password: ${{  secrets.SF_PASSWORD }} 
+          snowflake_username: ${{  secrets.SF_USERNAME }}
+          snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
           queries: 'DROP SCHEMA RAW_DATA.REPORT'
-        if: steps.run_tests.outcome == 'failure'
-                # single quote is escaped with another single quote
-
-
+        if: steps.run_tests.outcome == 'failure' 
+  
+      - name: SQL INGECTION
+        uses: anecdotes-ai/snowflake-query@1.1      
+        with:
+          snowflake_account: ${{ secrets.SF_ACCOUNT }}
+          snowflake_password: ${{  secrets.SF_PASSWORD }} 
+          snowflake_username: ${{  secrets.SF_USERNAME }}
+          snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
+          queries: 'DROP SCHEMA RAW_DATA.REPORT'
+        if: steps.run_tests.outcome == 'failure' 
+                
+  sql-review:
+    runs-on: ubuntu-latest
+    name: SQL Review
+    steps:
+            - uses: actions/checkout@v3
+            - name: Check SQL
+              # You can change it to a specific version like bytebase/sql-review-action@0.0.4
+              # We suggest using the latest version through the tag. Check it at https://github.com/Bytebase/sql-review-action/tags
+              uses: bytebase/sql-review-action@main
+              with:
+                override-file-path: workflow.yml
+                # template-id: "<SQL review rule template id>"
+                database-type: MySQL
+                file-pattern: /models/*.sql
