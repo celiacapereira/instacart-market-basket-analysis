@@ -56,6 +56,11 @@ jobs:
         id: run_models 
         run: dbt run --target dev
 
+      - name: Test dbt models
+        id: run_tests
+        run: dbt test
+        continue-on-error: true        
+
       - name: Snowflake Query Action
         uses: anecdotes-ai/snowflake-query@1.1      
         with:
