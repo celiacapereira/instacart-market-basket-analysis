@@ -57,7 +57,7 @@ jobs:
         run: dbt run --target dev
 
       - name: Run queries
-        uses: ./action.yml
+        uses: anecdotes-ai/snowflake-query/action.yml
         with:
           snowflake_account: ${{ secrets.SF_ACCOUNT }}
           snowflake_password: ${{  secrets.SF_PASSWORD }} 
