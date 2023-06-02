@@ -12,7 +12,7 @@ models:
       - name: PRODUCT_NAME
         description: Product name
         tests:
-          - not null  
+          - not_null  
       - name: AISLE
         description: AISLE
         tests:
@@ -29,7 +29,7 @@ models:
         description: primary key of the model
         tests:
           - unique
-          - not null
+          - not_null
       - name: ORDER_NUMBER
         description: Product name
         tests:
