@@ -83,6 +83,7 @@ jobs:
                 
   sql-review:
     runs-on: ubuntu-latest
+    needs: DeployDev
     environment:
       name: DEV
     env:
@@ -107,7 +108,8 @@ jobs:
       run: git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
       
     - name: runs on python sqlmap.py -h
-      run: python sqlmap.py -h
+      run: echo ${{ github.workspace }}
+
 
   
 
