@@ -85,7 +85,8 @@ jobs:
       - name: Lint with sqlfluff
         run: |
           pip install sqlfluff
-          sqlfluff lint --dialect mysql models\marts\full_products.sql
+          git fetch origin main:main
+          git diff main --name-only --diff-filter=d | egrep '^models/.*sql$$' | xargs -r sqlfluff lint
 
         
         # Linting only modified models
