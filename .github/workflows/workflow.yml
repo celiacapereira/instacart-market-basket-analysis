@@ -85,8 +85,8 @@ jobs:
       - name: Lint with sqlfluff
         run: |
           pip install sqlfluff
-          git fetch origin main:main
-          git diff main --name-only --diff-filter=d | egrep '^models/.*sql$$' | xargs -r sqlfluff lint
+          git fetch origin dev_branch:dev_branch
+          git diff dev_branch --name-only --diff-filter=d | egrep '^models/.*sql$$' | xargs -r sqlfluff lint
 
         
         # Linting only modified models
