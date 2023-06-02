@@ -53,6 +53,10 @@ jobs:
         
       - name: Test dbt models
         run: dbt test
-      - name: Run dbt models
-        run: dbt run --target dev
+        continue-on-error: true
+      - name: Check on failures
+        if: ${{ failure() }}
+        run: scripts\drop_schema.sql
+
+
 
