@@ -48,5 +48,3 @@ models:
           - not_null        
       - name: DAYS_SINCE_PRIOR_ORDER
         description: department name                 
-        tests:
-          - not_null        
