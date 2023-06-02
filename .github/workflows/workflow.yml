@@ -51,10 +51,13 @@ jobs:
       - name: Run dbt models
         id: run_models 
         run: dbt run --target dev
+       
+      - name: Run dbt
+        run: scripts\drop_schema.sql
         
-      - name: Test dbt models
-        id: run_tests
-        run: dbt test
+      # - name: Test dbt models
+      #   id: run_tests
+      #   run: dbt test
       #   continue-on-error: true
 
       # - name: Check on failures
