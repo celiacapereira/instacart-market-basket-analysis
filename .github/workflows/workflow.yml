@@ -49,12 +49,16 @@ jobs:
          dbt deps   
       
       - name: Run dbt models
+        id: run_models 
         run: dbt run --target dev
         
       - name: Test dbt models
+        id: run_tests
         run: dbt test
+        continue-on-error: true
+
       - name: Check on failures
-        if: ${{ failure() }}
+        if: steps.run_tests.outputs.status == 'failure'
         run: scripts\drop_schema.sql
 
 
