@@ -11,10 +11,17 @@ models:
           - not_null
       - name: PRODUCT_NAME
         description: Product name
+        tests:
+          - not null  
       - name: AISLE
         description: AISLE
+        tests:
+          - not null        
       - name: DEPARTMENT
         description: department name  
+        tests:
+          - not null        
+
   - name: orders
     description: products with all information
     columns:
@@ -25,11 +32,22 @@ models:
           - not_null
       - name: ORDER_NUMBER
         description: Product name
+        tests:
+          - not null        
+
       - name: USER_ID
         description: AISLE
+        tests:
+          - not null        
       - name: ORDER_HOUR_OF_DAY
         description: department name  
+        tests:
+          - not null        
       - name: EVAL_SET
         description: department name   
+        tests:
+          - not null        
       - name: DAYS_SINCE_PRIOR_ORDER
         description: department name                 
+        tests:
+          - not null        
