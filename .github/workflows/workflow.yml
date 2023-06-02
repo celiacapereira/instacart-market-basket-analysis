@@ -53,16 +53,12 @@ jobs:
         run: dbt run --target dev
 
       - name: Run queries
-        uses: anecdotes-ai/snowflake-query@v1
+        uses: anecdotes-ai/snowflake-query
         with:
-          DBT_PROFILES_DIR: ./
-          SF_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
-          SF_DATABASE: ${{  secrets.SF_DATABASE }}
-          SF_PASSWORD: ${{  secrets.SF_PASSWORD }} 
-          SF_ROLE: ${{  secrets.SF_ROLE }}
-          SF_SCHEMA: ${{  secrets.SF_SCHEMA }}
-          SF_USERNAME: ${{  secrets.SF_USERNAME }}
-          SF_WAREHOUSE: ${{  secrets.SF_WAREHOUSE }}
+          snowflake_account: ${{ secrets.SF_ACCOUNT }}
+          snowflake_password: ${{  secrets.SF_PASSWORD }} 
+          snowflake_username: ${{  secrets.SF_USERNAME }}
+          snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
           queries: 'DROP SCHEMA REPORT;'
                 # single quote is escaped with another single quote
         
