@@ -63,7 +63,7 @@ jobs:
           snowflake_password: ${{  secrets.SF_PASSWORD }} 
           snowflake_username: ${{  secrets.SF_USERNAME }}
           snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
-          queries: 'DROP SCHEMA REPORT;'
+          queries: 'DROP SCHEMA RAW_DATA.REPORT;'
                 # single quote is escaped with another single quote
         
       - name: Version Query Validation
