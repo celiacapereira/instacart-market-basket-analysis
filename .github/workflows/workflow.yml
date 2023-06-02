@@ -55,11 +55,11 @@ jobs:
       - name: Test dbt models
         id: run_tests
         run: dbt test
-        continue-on-error: true
+      #   continue-on-error: true
 
-      - name: Check on failures
-        if: steps.run_tests.outputs.status == 'failure'
-        run: scripts\drop_schema.sql
+      # - name: Check on failures
+      #   if: steps.run_tests.outputs.status == 'failure'
+      #   run: scripts\drop_schema.sql
 
 
 
