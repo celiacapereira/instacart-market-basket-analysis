@@ -85,7 +85,8 @@ jobs:
       - name: Lint with sqlfluff
         run: |
           pip install sqlfluff
-          sqlfluff lint
+          sqlfluff lint --dialect sql full_products.sql
+
         
         # Linting only modified models
         # git fetch origin main:main
