@@ -64,25 +64,12 @@ jobs:
       - name: Snowflake Query Action
         uses: anecdotes-ai/snowflake-query@1.1      
         with:
-          snowflake_account: ${{ secrets.SF_ACCOUNT }}
-          snowflake_password: ${{  secrets.SF_PASSWORD }} 
-          snowflake_username: ${{  secrets.SF_USERNAME }}
-          snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
+          # snowflake_account: ${{ secrets.SF_ACCOUNT }}
+          # snowflake_password: ${{  secrets.SF_PASSWORD }} 
+          # snowflake_username: ${{  secrets.SF_USERNAME }}
+          # snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
           queries: 'DROP SCHEMA RAW_DATA.REPORT'
         if: steps.run_tests.outcome == 'failure'
                 # single quote is escaped with another single quote
-        
-       
-      # - name: Run dbt
-      #   run: scripts\drop_schema.sql
-        
-      # - name: Test dbt models
-      #   id: run_tests
-      #   run: dbt test
-      #   continue-on-error: true
-
-      # - name: Check on failures
-      #   run: scripts\drop_schema.sql
-
 
 
