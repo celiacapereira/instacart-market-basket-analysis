@@ -12,15 +12,15 @@ models:
       - name: PRODUCT_NAME
         description: Product name
         tests:
-          - not null  
+          - not_null  
       - name: AISLE
         description: AISLE
         tests:
-          - not null        
+          - not_null        
       - name: DEPARTMENT
         description: department name  
         tests:
-          - not null        
+          - not_null        
 
   - name: orders
     description: products with all information
@@ -33,12 +33,11 @@ models:
       - name: ORDER_NUMBER
         description: Product name
         tests:
-          - not null        
-
+          - not_null        
       - name: USER_ID
         description: AISLE
         tests:
-          - not null        
+          - not_null        
       - name: ORDER_HOUR_OF_DAY
         description: department name  
         tests:
@@ -46,8 +45,8 @@ models:
       - name: EVAL_SET
         description: department name   
         tests:
-          - not null        
+          - not_null        
       - name: DAYS_SINCE_PRIOR_ORDER
         description: department name                 
         tests:
-          - not null        
+          - not_null        
