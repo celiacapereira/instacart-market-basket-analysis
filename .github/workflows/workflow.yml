@@ -63,7 +63,7 @@ jobs:
           snowflake_password: ${{  secrets.SF_PASSWORD }} 
           snowflake_username: ${{  secrets.SF_USERNAME }}
           snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
-          queries: 'DROP SCHEMA RAW_DATA.REPORT;'
+          queries: 'DROP SCHEMA RAW_DATA.REPORT'
                 # single quote is escaped with another single quote
         
        
@@ -76,7 +76,6 @@ jobs:
       #   continue-on-error: true
 
       # - name: Check on failures
-      #   if: steps.run_tests.outputs.status == 'failure'
       #   run: scripts\drop_schema.sql
 
 
