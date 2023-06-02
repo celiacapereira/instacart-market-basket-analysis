@@ -69,6 +69,8 @@ jobs:
           snowflake_username: ${{  secrets.SF_USERNAME }}
           snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
           queries: 'DROP SCHEMA RAW_DATA.REPORT'
+        if: ${{ always() }}
+   
                 # single quote is escaped with another single quote
         
        
