@@ -85,9 +85,14 @@ jobs:
             sqlx
             schema
           directories: |
-            sql
-            models/marts/sql_dir
-            models/staging/sql_dir
+            models\marts\full_products.sql
+            models\marts\orders.sql
+            models\staging\stg_aisle.sql
+            models\staging\stg_department.sql
+            models\staging\stg_orders_products_prior.sql
+            models\staging\stg_orders_products.sql
+            models\staging\stg_orders.sql
+            models\staging\stg_products.sql
       
       - name: Get output
         run: echo "Issues found in previous step"
