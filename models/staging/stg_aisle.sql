@@ -9,7 +9,8 @@ with source as (
 renamed as (
 
     select
-    *
+    AISLE_ID,
+    AISLE
     from source
 
 )
