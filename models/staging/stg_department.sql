@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('market_basket', 'DEPARTMENT') }}
+    select DEPARTMENT_ID, DEPARTMENT from {{ source('market_basket', 'DEPARTMENT') }}
 
 ),
 renamed as (
@@ -12,4 +12,4 @@ renamed as (
 
 )
 
-select * from renamed
+select DEPARTMENT_ID, DEPARTMENT from renamed
