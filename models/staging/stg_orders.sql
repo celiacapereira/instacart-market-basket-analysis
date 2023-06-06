@@ -1,6 +1,12 @@
 with source as (
 
-    select * from {{ source('market_basket', 'ORDERS') }}
+    select ORDER_ID,
+    USER_ID,
+    EVAL_SET,
+    ORDER_NUMBER,
+    ORDER_HOUR_OF_DAY,
+    DAYS_SINCE_PRIOR_ORDER
+     from {{ source('market_basket', 'ORDERS') }}
 
 ),
 renamed as (
@@ -16,4 +22,11 @@ renamed as (
 
 )
 
-select * from renamed
+select 
+    ORDER_ID,
+    USER_ID,
+    EVAL_SET,
+    ORDER_NUMBER,
+    ORDER_HOUR_OF_DAY,
+    DAYS_SINCE_PRIOR_ORDER
+from renamed
