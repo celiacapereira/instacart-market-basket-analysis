@@ -77,7 +77,7 @@ jobs:
         id: sqlcheck
         with:
           post-comment: true
-          risk-level: 1
+          risk-level: 3
           verbose: true
           token: ${{ secrets.TOKEN }}
           postfixes: |
