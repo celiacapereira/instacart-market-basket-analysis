@@ -82,8 +82,6 @@ jobs:
           token: ${{ secrets.TOKEN }}
           postfixes: |
             sql
-            sqlx
-            schema
           directories: |
             models/marts/full_products.sql
             models/marts/orders.sql
