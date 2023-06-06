@@ -71,22 +71,41 @@ jobs:
           queries: 'DROP SCHEMA RAW_DATA.REPORT'
         if: steps.run_tests.outcome == 'failure' 
   
-      - name: SQL INGECTION
-        uses: anecdotes-ai/snowflake-query@1.1      
+
+      - name: SQLCheck Action
+        uses: yokawasa/action-sqlcheck@v1.4.0
+        id: sqlcheck
         with:
-          snowflake_account: ${{ secrets.SF_ACCOUNT }}
-          snowflake_password: ${{  secrets.SF_PASSWORD }} 
-          snowflake_username: ${{  secrets.SF_USERNAME }}
-          snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
-          queries: 'DROP SCHEMA RAW_DATA.REPORT'
-        if: steps.run_tests.outcome == 'failure' 
+          post-comment: true
+          risk-level: 3
+          verbose: true
+          token: ${{ secrets.TOKEN }}
+          postfixes: |
+            sql
+            sqlx
+            schema
+      
+      - name: Get output
+        run: echo "Issues found in previous step"
+        if: steps.sqlcheck.outputs.issue-found      
+
+
+      # - name: SQL INGECTION
+      #   uses: anecdotes-ai/snowflake-query@1.1      
+      #   with:
+      #     snowflake_account: ${{ secrets.SF_ACCOUNT }}
+      #     snowflake_password: ${{  secrets.SF_PASSWORD }} 
+      #     snowflake_username: ${{  secrets.SF_USERNAME }}
+      #     snowflake_warehouse: ${{  secrets.SF_WAREHOUSE }}
+      #     queries: 'DROP SCHEMA RAW_DATA.REPORT'
+      #   if: steps.run_tests.outcome == 'failure' 
        
               
-      - name: Lint with sqlfluff
-        run: |
-          pip install sqlfluff
-          git fetch origin dev_branch:dev_branch
-          git diff dev_branch --name-only --diff-filter=d | egrep '^models/.*sql$$' | xargs -r sqlfluff lint
+      # - name: Lint with sqlfluff
+      #   run: |
+      #     pip install sqlfluff
+      #     git fetch origin dev_branch:dev_branch
+      #     git diff dev_branch --name-only --diff-filter=d | egrep '^models/.*sql$$' | xargs -r sqlfluff lint
 
         
         # Linting only modified models
