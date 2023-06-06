@@ -14,4 +14,5 @@ renamed as (
 
 )
 
-select * from renamed
+select AISLE_ID,
+    AISLE from renamed
